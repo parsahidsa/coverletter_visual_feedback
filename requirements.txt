@@ -6,3 +6,5 @@ openai>=1.0.0
 pillow
 python-dotenv
 python-multipart
+gunicorn
+uvicorn[standard]
