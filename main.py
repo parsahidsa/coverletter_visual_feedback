@@ -13,7 +13,7 @@ app = FastAPI()
 # ایجاد کلاینت OpenAI
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
-@app.post("/analyze-resume-visual")
+@app.post("/analyze-coverletter-visual")
 async def analyze_resume_visual(file: UploadFile = File(...), job_description: str = Form(...)):
     try:
         # چاپ job_description برای اطمینان از دریافت آن
