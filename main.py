@@ -43,7 +43,7 @@ async def analyze_resume_visual(file: UploadFile = File(...), job_description: s
         response = client.chat.completions.create(
             model="gpt-4.1",
             messages=[
-                {"role": "system", "content": "You are a professional German application consultant with expertise in creating creative, personalized, and impactful cover letters (Anschreiben) for job applications in Germany. "
+                {"type": "text", "text": "You are a professional German application consultant with expertise in creating creative, personalized, and impactful cover letters (Anschreiben) for job applications in Germany. "
                 "Follow the latest best practices for Anschreiben, making sure the text is NOT generic or repetitive. "
                 "Adapt the content for the provided job description and the candidate's background from the attached resume image(s). "
                 "Your cover letter should be tailored, original, and written in a confident and positive tone, connecting the applicant's skills and motivation with the job requirements and company profile. "
@@ -53,8 +53,8 @@ async def analyze_resume_visual(file: UploadFile = File(...), job_description: s
                 "Keep sentences concise and easy to read, use synonyms to avoid repetition, and maintain professional yet warm language. "
                 "Finish with a short closing, including possible starting date and a polite request for an interview. "
                 "Output: Only the cover letter text in German, ready for direct use."},
+                 {"type": "text", "text": job_description}, 
                     *image_messages
-                ]}
             ],
             max_tokens=8000
         )
